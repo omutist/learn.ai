@@ -1,0 +1,11 @@
+services:
+  dev:
+    image: learn-ai:latest
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    command: tail -f /dev/null
+    volumes:
+      - .:/workspace:cached      # mount entire repo
+      - /var/run/docker.sock:/var/run/docker.sock
+    working_dir: /workspace

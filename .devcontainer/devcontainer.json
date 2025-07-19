@@ -1,0 +1,34 @@
+{
+  "name": "Learn AI Container",
+  "dockerComposeFile": ["../docker-compose.yml"],
+  "service": "dev",
+  "workspaceFolder": "/workspace",
+  "overrideCommand": false,
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "python.linting.mypyArgs": ["--config-file=pyproject.toml"],
+        "flake8.args": ["--config=pyproject.toml"],
+        "black-formatter.args": ["--config=pyproject.toml"],
+        "python.analysis.typeCheckingMode": "basic",
+        "python.analysis.diagnosticMode": "workspace",
+        "python.formatting.provider": "black",
+        "python.linting.mypyEnabled": true
+      },
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-azuretools.vscode-docker",
+        "ms-python.black-formatter",
+        "ms-python.flake8",
+        "ms-python.mypy-type-checker"
+      ]
+    }
+  },
+  "forwardPorts": [],
+  "remoteEnv": {
+    "PYTHONPATH": "/workspace"
+  },
+  "postCreateCommand": "pip install --root-user-action=ignore -e '.[dev]'"
+}
