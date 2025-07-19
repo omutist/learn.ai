@@ -1,5 +1,5 @@
 # Use a slim Python base image
-FROM python:3.12.3-slim
+FROM python:3.12.11-slim-bookworm
 
 # Set working directory
 WORKDIR /workspace
